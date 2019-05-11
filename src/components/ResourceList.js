@@ -9,10 +9,12 @@ class ResourceList extends Component {
     this.getData();
   }
 
-  getData() {
-    fetch(`https://jsonplaceholder.typicode.com/${this.props.resource}`)
-      .then(res => res.json())
-      .then(json => this.setState({ resources: json }));
+  async getData() {
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/${this.props.resource}`
+    );
+    const data = await res.json();
+    return this.setState({ resources: data });
   }
 
   render() {
