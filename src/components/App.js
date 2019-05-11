@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [resource, setResource] = useState();
+  const [resource, setResource] = useState('posts');
+  console.log(resource);
   return (
     <div>
       <div>
-        <button onClick={() => setResource({ resource: 'posts' })}>
-          Posts
-        </button>
-        <button onClick={() => setResource({ resource: 'todos' })}>
-          Todos
-        </button>
+        <button onClick={() => setResource('posts')}>Posts</button>
+        <button onClick={() => setResource('todos')}>Todos</button>
       </div>
-      {this.state.resource}
+      {resource}
     </div>
   );
 };
