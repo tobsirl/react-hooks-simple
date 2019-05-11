@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
+import ResourceList from './ResourceList';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
 const App = () => {
   const [resource, setResource] = useState('posts');
+
   console.log(resource);
   return (
     <div>
@@ -29,9 +32,8 @@ const App = () => {
         className={resource}
         margin="normal"
         value={resource}
-      >
-        {resource}
-      </TextField>
+      />
+      <ResourceList resource={resource}/>
     </div>
   );
 };
