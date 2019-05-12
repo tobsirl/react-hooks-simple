@@ -9,8 +9,10 @@ class ResourceList extends Component {
     this.getData();
   }
 
-  componentDidUpdate() {
-    this.getData();
+  componentDidUpdate(prevProps) {
+    if (prevProps.resource !== this.props.resource) {
+      this.getData();
+    }
   }
 
   async getData() {
