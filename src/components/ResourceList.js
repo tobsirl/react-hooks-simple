@@ -1,38 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class ResourceList extends Component {
-  state = {
-    resources: []
-  };
+const ResourceList = () => {
+  const [resources, setResources] = useState([]);
 
-  componentDidMount() {
-    this.getData();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.resource !== this.props.resource) {
-      this.getData();
-    }
-  }
-
-  async getData() {
+  const getData = async () => {
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/${this.props.resource}`
     );
     const data = await res.json();
-    return this.setState({ resources: data });
-  }
+    return setResources({ resources: data });
+  };
 
-  render() {
-    return (
-      <div>
-        {this.state.resources.length}
-        {this.state.resources.map(resource => {
-          return <li key={resource.id}>{resource.title}</li>;
-        })}
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      {resources.length}
+      {resources.map(resource => {
+        return <li key={resource.id}>{resource.title}</li>;
+      })}
+    </div>
+  );
+};
 
 export default ResourceList;
