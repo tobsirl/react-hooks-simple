@@ -9,6 +9,10 @@ class ResourceList extends Component {
     this.getData();
   }
 
+  componentDidUpdate() {
+    this.getData();
+  }
+
   async getData() {
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/${this.props.resource}`
@@ -20,6 +24,7 @@ class ResourceList extends Component {
   render() {
     return (
       <div>
+        {this.state.resources.length}
         {this.state.resources.map(resource => {
           return <li key={resource.id}>{resource.title}</li>;
         })}
