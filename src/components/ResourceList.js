@@ -4,10 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 
-
-
-
-const ResourceList = ({ resource }) => {
+const useResource = resource => {
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
@@ -20,6 +17,12 @@ const ResourceList = ({ resource }) => {
     })(resource);
   }, [resource]);
 
+  return resources;
+};
+
+const ResourceList = ({ resource }) => {
+  const resources = useResource(resource);
+  
   return (
     <List component="ul">
       {resources.length}
