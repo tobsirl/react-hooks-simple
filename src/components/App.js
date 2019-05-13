@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import ResourceList from './ResourceList';
 import UserList from './UserList';
+import AlbumList from './AlbumList';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <div>
       <UserList />
+      <AlbumList />
       <div>
         <Button
           variant="outlined"
