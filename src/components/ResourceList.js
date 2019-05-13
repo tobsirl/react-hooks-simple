@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+import useResource from './useResources';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 
-const useResource = resource => {
-  const [resources, setResources] = useState([]);
-
-  useEffect(() => {
-    (async resource => {
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/${resource}`
-      );
-      const data = await res.json();
-      return setResources(data);
-    })(resource);
-  }, [resource]);
-
-  return resources;
-};
-
 const ResourceList = ({ resource }) => {
   const resources = useResource(resource);
-  
+
   return (
     <List component="ul">
       {resources.length}

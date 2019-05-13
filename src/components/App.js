@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import ResourceList from './ResourceList';
+import UserList from './UserList';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,6 +12,7 @@ const App = () => {
   console.log(resource);
   return (
     <div>
+      <UserList />
       <div>
         <Button
           variant="outlined"
@@ -33,7 +35,7 @@ const App = () => {
         margin="normal"
         value={resource}
       />
-      <ResourceList resource={resource}/>
+      <ResourceList resource={resource} />
     </div>
   );
 };
